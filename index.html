@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>HelloBoxPe | Coleccionables & Figuras Pokémon | Perú</title>
+<meta name="description" content="Tienda de coleccionables en Perú. Figuras Pokémon Takara Tomy, autos a escala Bburago. Envíos a todo el Perú por Mercado Libre."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #fafafa;
+  --bg2:         #f9e4f4;
+  --bg3:         #ffffff;
+  --pink:        #e8609a;
+  --pink2:       #c0427a;
+  --purple:      #9b5de5;
+  --purple2:     #7c3acd;
+  --blue:        #5bc0eb;
+  --mint:        #a8e6cf;
+  --yellow:      #ffd166;
+  --text:        #3d2b6b;
+  --text2:       #7a6090;
+  --card-bg:     #ffffff;
+  --card-border: #eddff5;
+  --radius:      18px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 2px solid var(--card-border);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.logo {
+  font-size: 1.6rem; font-weight: 900;
+  background: linear-gradient(90deg, var(--pink) 0%, var(--purple) 60%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+}
+.header-links {
+  display: flex; align-items: center; gap: 0;
+}
+.header-links a {
+  color: var(--text2); text-decoration: none; font-size: .88rem; font-weight: 700;
+  margin-left: 1.2rem; transition: color .2s;
+  display: flex; align-items: center; gap: .3rem;
+}
+.header-links a:hover { color: var(--pink); }
+.header-links a svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* ── HERO ── */
+.hero {
+  position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #fff0f8 0%, #f3e8ff 50%, #e8f4ff 100%);
+  padding: 4.5rem 2rem 3.5rem;
+  text-align: center;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 20% 20%, rgba(232,96,154,.10) 0%, transparent 55%),
+              radial-gradient(ellipse at 80% 80%, rgba(155,93,229,.10) 0%, transparent 55%),
+              radial-gradient(ellipse at 60% 10%, rgba(91,192,235,.08) 0%, transparent 40%);
+  pointer-events: none;
+}
+.hero-tag {
+  display: inline-block;
+  background: linear-gradient(90deg, rgba(232,96,154,.15), rgba(155,93,229,.15));
+  border: 1.5px solid rgba(232,96,154,.35);
+  color: var(--pink2);
+  font-size: .78rem; font-weight: 800; letter-spacing: 1.5px;
+  padding: .35rem 1.2rem; border-radius: 100px;
+  text-transform: uppercase; margin-bottom: 1.2rem;
+}
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  font-weight: 900; line-height: 1.1;
+  margin-bottom: 1rem; color: var(--text);
+}
+.hero h1 .accent {
+  background: linear-gradient(90deg, var(--pink) 0%, var(--purple) 60%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  color: var(--text2); font-size: 1.05rem; font-weight: 600;
+  max-width: 520px; margin: 0 auto 2rem;
+}
+.hero-stats {
+  display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat-num {
+  font-size: 2rem; font-weight: 900;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+}
+.stat-label { font-size: .82rem; color: var(--text2); font-weight: 600; }
+
+/* ── FILTERS ── */
+.filters {
+  padding: 2rem 2rem 0;
+  max-width: 1400px; margin: 0 auto;
+}
+.search-wrap {
+  position: relative; margin-bottom: 1.2rem;
+}
+.search-wrap input {
+  width: 100%; padding: .75rem 1rem .75rem 3rem;
+  background: #fff; border: 2px solid var(--card-border);
+  border-radius: var(--radius); color: var(--text);
+  font-family: 'Nunito', sans-serif; font-size: .95rem; font-weight: 600;
+  outline: none; transition: border-color .2s;
+}
+.search-wrap input::placeholder { color: #c0a8cc; }
+.search-wrap input:focus { border-color: var(--pink); }
+.search-wrap::before {
+  content: '🔍'; position: absolute; left: 1rem; top: 50%;
+  transform: translateY(-50%); font-size: 1rem;
+}
+.cat-buttons {
+  display: flex; gap: .6rem; flex-wrap: wrap;
+}
+.cat-btn {
+  padding: .45rem 1.2rem;
+  background: #fff; border: 2px solid var(--card-border);
+  color: var(--text2); border-radius: 100px;
+  font-family: 'Nunito', sans-serif; font-size: .85rem; font-weight: 700;
+  cursor: pointer; transition: all .2s;
+}
+.cat-btn:hover { border-color: var(--pink); color: var(--pink); }
+.cat-btn.active {
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  border-color: transparent;
+  color: #fff;
+}
+
+/* ── GRID ── */
+.grid-section {
+  max-width: 1400px; margin: 0 auto;
+  padding: 2rem;
+}
+.results-info {
+  color: var(--text2); font-size: .9rem; font-weight: 600; margin-bottom: 1.2rem;
+}
+.results-info span {
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.4rem;
+}
+
+/* ── CARD ── */
+.card {
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: var(--radius);
+  overflow: hidden; display: flex; flex-direction: column;
+  transition: transform .25s, box-shadow .25s;
+  box-shadow: 0 2px 12px rgba(155,93,229,.07);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(232,96,154,.18);
+  border-color: rgba(232,96,154,.4);
+}
+.card-img-wrap {
+  position: relative; background: #fdf6fb;
+  aspect-ratio: 1; overflow: hidden;
+}
+.card-main-img {
+  width: 100%; height: 100%; object-fit: contain;
+  padding: 1rem; transition: transform .4s;
+}
+.card:hover .card-main-img { transform: scale(1.06); }
+.img-prev, .img-next {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,.88);
+  border: none; border-radius: 50%;
+  width: 32px; height: 32px;
+  font-size: 1.3rem; line-height: 1;
+  color: var(--purple); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  opacity: 0; transition: opacity .2s, background .15s;
+  z-index: 2; padding: 0;
+}
+.img-prev { left: 6px; }
+.img-next { right: 6px; }
+.card:hover .img-prev,
+.card:hover .img-next { opacity: 1; }
+.img-prev:hover, .img-next:hover { background: #fff; color: var(--pink); }
+
+.card-thumbs {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  display: flex; gap: 3px; padding: 5px;
+  background: rgba(253,240,248,.88);
+  opacity: 0; transition: opacity .2s;
+}
+.card:hover .card-thumbs { opacity: 1; }
+.card-thumbs img {
+  width: 44px; height: 44px; object-fit: contain;
+  background: #fff; border-radius: 8px; cursor: pointer;
+  border: 2px solid transparent; transition: border-color .15s;
+}
+.card-thumbs img:hover { border-color: var(--pink); }
+.card-thumbs img.active { border-color: var(--purple); }
+.card-cat {
+  position: absolute; top: 8px; left: 8px;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  color: #fff; font-size: .7rem; font-weight: 800;
+  padding: .25rem .7rem; border-radius: 100px;
+  text-transform: uppercase; letter-spacing: .5px;
+}
+.card-cond {
+  position: absolute; top: 8px; right: 8px;
+  background: rgba(255,255,255,.88);
+  color: var(--text2); font-size: .7rem; font-weight: 700;
+  padding: .25rem .7rem; border-radius: 100px;
+}
+.card-body {
+  padding: 1rem 1.1rem 1.2rem;
+  flex: 1; display: flex; flex-direction: column; gap: .55rem;
+}
+.card-title {
+  font-size: .9rem; font-weight: 700; line-height: 1.4;
+  color: var(--text); display: -webkit-box;
+  -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.badge-ship {
+  font-size: .75rem; color: #3bba78; font-weight: 700;
+}
+.card-price {
+  font-size: 1.55rem; font-weight: 900;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: auto;
+}
+.btn-buy {
+  display: block; text-align: center;
+  padding: .65rem 1rem;
+  background: linear-gradient(90deg, var(--pink) 0%, var(--purple) 100%);
+  color: #fff; text-decoration: none;
+  border-radius: 12px; font-family: 'Nunito', sans-serif;
+  font-weight: 800; font-size: .9rem;
+  transition: opacity .2s, transform .15s;
+  box-shadow: 0 4px 14px rgba(232,96,154,.3);
+}
+.btn-buy:hover { opacity: .9; transform: scale(1.02); }
+.btn-wa {
+  display: block; text-align: center;
+  padding: .55rem 1rem;
+  background: #fff;
+  border: 2px solid #25D366;
+  color: #128C7E; text-decoration: none;
+  border-radius: 12px; font-family: 'Nunito', sans-serif;
+  font-weight: 800; font-size: .85rem;
+  transition: background .2s, color .2s, transform .15s;
+}
+.btn-wa:hover { background: #25D366; color: #fff; transform: scale(1.02); }
+
+/* ── FOOTER ── */
+footer {
+  margin-top: 4rem;
+  background: linear-gradient(160deg, #f9e4f4, #ede8ff);
+  border-top: 2px solid var(--card-border);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+.footer-logo {
+  font-size: 1.5rem; font-weight: 900;
+  background: linear-gradient(90deg, var(--pink), var(--purple), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: .5rem;
+}
+.footer-links { margin: 1rem 0; }
+.footer-links a {
+  color: var(--text2); text-decoration: none;
+  margin: 0 .8rem; font-size: .9rem; font-weight: 700;
+  transition: color .2s;
+}
+.footer-links a:hover { color: var(--pink); }
+.footer-copy { color: var(--text2); font-size: .8rem; font-weight: 600; margin-top: .8rem; }
+.updated { font-size: .75rem; color: #b8a0cc; margin-top: .4rem; }
+
+/* ── TRUST BAND ── */
+.trust-band {
+  background: linear-gradient(90deg, #fff0f8, #f5eeff, #eef8ff);
+  border-top: 2px solid var(--card-border);
+  border-bottom: 2px solid var(--card-border);
+  padding: 2.5rem 2rem;
+  margin-top: 3rem;
+}
+.trust-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+.trust-item {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; gap: .5rem;
+}
+.trust-icon {
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.trust-title {
+  font-weight: 800; font-size: .95rem; color: var(--text);
+}
+.trust-desc {
+  font-size: .82rem; color: var(--text2); font-weight: 600; line-height: 1.4;
+}
+
+/* ── WHATSAPP BTN ── */
+.wa-fab {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
+  width: 56px; height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,.45);
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+}
+.wa-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,.6);
+}
+.wa-fab svg { width: 30px; height: 30px; fill: #fff; }
+
+/* ── NO RESULTS ── */
+.no-results {
+  grid-column: 1/-1; text-align: center;
+  padding: 4rem 1rem; color: var(--text2);
+}
+.no-results span { font-size: 3rem; display: block; margin-bottom: 1rem; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .hero { padding: 3rem 1rem 2.5rem; }
+  .hero h1 { font-size: 2rem; }
+  .header-links { display: none; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+  .card-price { font-size: 1.3rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#">HelloBoxPe</a>
+  <nav class="header-links">
+    <a href="#catalogo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Catálogo
+    </a>
+    <a href="https://www.mercadolibre.com.pe/pagina/helloboxpe" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1.5 14.5v-5l-2 1-1-1.5 3.5-2.5 3.5 2.5-1 1.5-2-1v5h-1z"/><path d="M3 9h18M8 2.5C8 2.5 6 7 6 12s2 9.5 2 9.5M16 2.5s2 4.5 2 9.5-2 9.5-2 9.5"/></svg>
+      Mercado Libre
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61590178142576" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.tiktok.com/@helloboxpe" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
+      TikTok
+    </a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-tag">⭐ Tienda Oficial Perú</div>
+  <h1>Tu tienda de<br/><span class="accent">Coleccionables</span></h1>
+  <p>Figuras Pokémon Takara Tomy originales, autos a escala Bburago y más. Envíos a todo el Perú.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">24</span>
+      <span class="stat-label">Productos en stock</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Originales</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">🇵🇪</span>
+      <span class="stat-label">Envíos a todo el Perú</span>
+    </div>
+  </div>
+</section>
+
+<section class="filters" id="catalogo">
+  <div class="search-wrap">
+    <input type="text" id="search" placeholder="Buscar producto... (ej: Pikachu, Ferrari, Gengar)"/>
+  </div>
+  <div class="cat-buttons" id="cat-buttons">
+    <button class="cat-btn active" data-cat="all">Todos (24)</button><button class="cat-btn" data-cat="autos">Autos a Escala (6)</button><button class="cat-btn" data-cat="pokemon">Pokémon (18)</button>
+  </div>
+</section>
+
+<section class="grid-section">
+  <p class="results-info">Mostrando <span id="count">24</span> productos</p>
+  <div class="grid" id="grid">
+    
+        <div class="card" data-cat="autos" data-title="auto bburago 1:64 ferrari f12tdf coleccionable rojo">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_960467-MPE103241242402_012026-F.webp", "https://http2.mlstatic.com/D_775145-MPE103242779806_012026-F.webp", "https://http2.mlstatic.com/D_993482-MPE103759163061_012026-F.webp", "https://http2.mlstatic.com/D_728109-MPE103759172953_012026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_960467-MPE103241242402_012026-F.webp" alt="Auto Bburago 1:64 Ferrari F12tdf Coleccionable Rojo" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_960467-MPE103241242402_012026-F.webp" alt="Auto Bburago 1:64 Ferrari F12tdf Coleccionable Rojo" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_775145-MPE103242779806_012026-F.webp" alt="Auto Bburago 1:64 Ferrari F12tdf Coleccionable Rojo" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_993482-MPE103759163061_012026-F.webp" alt="Auto Bburago 1:64 Ferrari F12tdf Coleccionable Rojo" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_728109-MPE103759172953_012026-F.webp" alt="Auto Bburago 1:64 Ferrari F12tdf Coleccionable Rojo" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Autos a Escala</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Auto Bburago 1:64 Ferrari F12tdf Coleccionable Rojo</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 45.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-935263838-auto-bburago-164-ferrari-f12tdf-coleccionable-rojo-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Auto%20Bburago%201%3A64%20Ferrari%20F12tdf%20Coleccionable%20Rojo%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="autos" data-title="auto bburago 1:64 ferrari sf90 stradale coleccionable rojo">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_621773-MPE103885674855_012026-F.webp", "https://http2.mlstatic.com/D_999419-MPE103884793939_012026-F.webp", "https://http2.mlstatic.com/D_975461-MPE103367379148_012026-F.webp", "https://http2.mlstatic.com/D_772627-MPE103367636258_012026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_621773-MPE103885674855_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Sf90 Stradale Coleccionable Rojo" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_621773-MPE103885674855_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Sf90 Stradale Coleccionable Rojo" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_999419-MPE103884793939_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Sf90 Stradale Coleccionable Rojo" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_975461-MPE103367379148_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Sf90 Stradale Coleccionable Rojo" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_772627-MPE103367636258_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Sf90 Stradale Coleccionable Rojo" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Autos a Escala</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Auto Bburago 1:64 Ferrari Sf90 Stradale Coleccionable Rojo</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 45.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-940280006-auto-bburago-164-ferrari-sf90-stradale-coleccionable-rojo-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Auto%20Bburago%201%3A64%20Ferrari%20Sf90%20Stradale%20Coleccionable%20Rojo%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="autos" data-title="auto bburago 1:64 ferrari daytona sp3 coleccionable blanco">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_740186-MPE104002651915_012026-F.webp", "https://http2.mlstatic.com/D_863525-MPE103481005200_012026-F.webp", "https://http2.mlstatic.com/D_716934-MPE103366699798_012026-F.webp", "https://http2.mlstatic.com/D_976380-MPE104002651913_012026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_740186-MPE104002651915_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Daytona Sp3 Coleccionable Blanco" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_740186-MPE104002651915_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Daytona Sp3 Coleccionable Blanco" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_863525-MPE103481005200_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Daytona Sp3 Coleccionable Blanco" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_716934-MPE103366699798_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Daytona Sp3 Coleccionable Blanco" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_976380-MPE104002651913_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Daytona Sp3 Coleccionable Blanco" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Autos a Escala</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Auto Bburago 1:64 Ferrari Daytona Sp3 Coleccionable Blanco</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 45.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-938928238-auto-bburago-164-ferrari-daytona-sp3-coleccionable-blanco-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Auto%20Bburago%201%3A64%20Ferrari%20Daytona%20Sp3%20Coleccionable%20Blanco%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="autos" data-title="auto bburago 1:64 ferrari laferrari coleccionable blanco">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_724613-MPE103367600124_012026-F.webp", "https://http2.mlstatic.com/D_742516-MPE103367629812_012026-F.webp", "https://http2.mlstatic.com/D_819060-MPE103367264238_012026-F.webp", "https://http2.mlstatic.com/D_798575-MPE103367600122_012026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_724613-MPE103367600124_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Laferrari Coleccionable Blanco" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_724613-MPE103367600124_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Laferrari Coleccionable Blanco" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_742516-MPE103367629812_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Laferrari Coleccionable Blanco" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_819060-MPE103367264238_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Laferrari Coleccionable Blanco" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_798575-MPE103367600122_012026-F.webp" alt="Auto Bburago 1:64 Ferrari Laferrari Coleccionable Blanco" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Autos a Escala</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Auto Bburago 1:64 Ferrari Laferrari Coleccionable Blanco</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 45.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-935381078-auto-bburago-164-ferrari-laferrari-coleccionable-blanco-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Auto%20Bburago%201%3A64%20Ferrari%20Laferrari%20Coleccionable%20Blanco%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="autos" data-title="auto bburago 1:64 ferrari laferrari coleccionable color blanco">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_689678-MLA82608185768_032025-F.webp", "https://http2.mlstatic.com/D_712994-MLA82608157116_032025-F.webp", "https://http2.mlstatic.com/D_854030-MLA82608101308_032025-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_689678-MLA82608185768_032025-F.webp" alt="Auto Bburago 1:64 Ferrari Laferrari Coleccionable Color Blanco" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_689678-MLA82608185768_032025-F.webp" alt="Auto Bburago 1:64 Ferrari Laferrari Coleccionable Color Blanco" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_712994-MLA82608157116_032025-F.webp" alt="Auto Bburago 1:64 Ferrari Laferrari Coleccionable Color Blanco" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_854030-MLA82608101308_032025-F.webp" alt="Auto Bburago 1:64 Ferrari Laferrari Coleccionable Color Blanco" loading="lazy" data-idx="2"/></div>
+                <span class="card-cat">Autos a Escala</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Auto Bburago 1:64 Ferrari Laferrari Coleccionable Color Blanco</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 45.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-942152010-auto-bburago-164-ferrari-laferrari-coleccionable-color-blanco-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Auto%20Bburago%201%3A64%20Ferrari%20Laferrari%20Coleccionable%20Color%20Blanco%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="autos" data-title="auto bburago 1:64 ferrari 599 gto coleccionable rojo">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_805689-MPE104002541105_012026-F.webp", "https://http2.mlstatic.com/D_827861-MPE104002541043_012026-F.webp", "https://http2.mlstatic.com/D_827081-MPE103480686600_012026-F.webp", "https://http2.mlstatic.com/D_630180-MPE103479852730_012026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_805689-MPE104002541105_012026-F.webp" alt="Auto Bburago 1:64 Ferrari 599 Gto Coleccionable Rojo" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_805689-MPE104002541105_012026-F.webp" alt="Auto Bburago 1:64 Ferrari 599 Gto Coleccionable Rojo" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_827861-MPE104002541043_012026-F.webp" alt="Auto Bburago 1:64 Ferrari 599 Gto Coleccionable Rojo" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_827081-MPE103480686600_012026-F.webp" alt="Auto Bburago 1:64 Ferrari 599 Gto Coleccionable Rojo" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_630180-MPE103479852730_012026-F.webp" alt="Auto Bburago 1:64 Ferrari 599 Gto Coleccionable Rojo" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Autos a Escala</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Auto Bburago 1:64 Ferrari 599 Gto Coleccionable Rojo</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 45.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-941814022-auto-bburago-164-ferrari-599-gto-coleccionable-rojo-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Auto%20Bburago%201%3A64%20Ferrari%20599%20Gto%20Coleccionable%20Rojo%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura de acción ms-26 gengar de takara tomy moncolle">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_655342-MLA84276265476_052025-F.webp", "https://http2.mlstatic.com/D_789729-MLA84572941637_052025-F.webp", "https://http2.mlstatic.com/D_625666-MLA84276098236_052025-F.webp", "https://http2.mlstatic.com/D_723051-MLA84573296193_052025-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_655342-MLA84276265476_052025-F.webp" alt="Figura De Acción Ms-26 Gengar De Takara Tomy Moncolle" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_655342-MLA84276265476_052025-F.webp" alt="Figura De Acción Ms-26 Gengar De Takara Tomy Moncolle" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_789729-MLA84572941637_052025-F.webp" alt="Figura De Acción Ms-26 Gengar De Takara Tomy Moncolle" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_625666-MLA84276098236_052025-F.webp" alt="Figura De Acción Ms-26 Gengar De Takara Tomy Moncolle" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_723051-MLA84573296193_052025-F.webp" alt="Figura De Acción Ms-26 Gengar De Takara Tomy Moncolle" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura De Acción Ms-26 Gengar De Takara Tomy Moncolle</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 45.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-953007340-figura-de-accion-ms-26-gengar-de-takara-tomy-moncolle-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20De%20Acci%C3%B3n%20Ms-26%20Gengar%20De%20Takara%20Tomy%20Moncolle%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura de gengar pokémon ms-26 takara tomy moncolle">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_655342-MLA84276265476_052025-F.webp", "https://http2.mlstatic.com/D_656835-MPE104477247278_012026-F.webp", "https://http2.mlstatic.com/D_789729-MLA84572941637_052025-F.webp", "https://http2.mlstatic.com/D_962563-MLA105035584021_012026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_655342-MLA84276265476_052025-F.webp" alt="Figura De Gengar Pokémon Ms-26 Takara Tomy Moncolle" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_655342-MLA84276265476_052025-F.webp" alt="Figura De Gengar Pokémon Ms-26 Takara Tomy Moncolle" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_656835-MPE104477247278_012026-F.webp" alt="Figura De Gengar Pokémon Ms-26 Takara Tomy Moncolle" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_789729-MLA84572941637_052025-F.webp" alt="Figura De Gengar Pokémon Ms-26 Takara Tomy Moncolle" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_962563-MLA105035584021_012026-F.webp" alt="Figura De Gengar Pokémon Ms-26 Takara Tomy Moncolle" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura De Gengar Pokémon Ms-26 Takara Tomy Moncolle</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 45.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-953007338-figura-de-gengar-pokemon-ms-26-takara-tomy-moncolle-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20De%20Gengar%20Pok%C3%A9mon%20Ms-26%20Takara%20Tomy%20Moncolle%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura gyarados moncolle ms-20 takara tomy pokémon">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_748640-MPE104478435990_012026-F.webp", "https://http2.mlstatic.com/D_854802-MPE104478437792_012026-F.webp", "https://http2.mlstatic.com/D_786150-MPE104477242310_012026-F.webp", "https://http2.mlstatic.com/D_814599-MPE105031447067_012026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_748640-MPE104478435990_012026-F.webp" alt="Figura Gyarados Moncolle Ms-20 Takara Tomy Pokémon" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_748640-MPE104478435990_012026-F.webp" alt="Figura Gyarados Moncolle Ms-20 Takara Tomy Pokémon" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_854802-MPE104478437792_012026-F.webp" alt="Figura Gyarados Moncolle Ms-20 Takara Tomy Pokémon" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_786150-MPE104477242310_012026-F.webp" alt="Figura Gyarados Moncolle Ms-20 Takara Tomy Pokémon" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_814599-MPE105031447067_012026-F.webp" alt="Figura Gyarados Moncolle Ms-20 Takara Tomy Pokémon" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura Gyarados Moncolle Ms-20 Takara Tomy Pokémon</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 45.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-952942350-figura-gyarados-moncolle-ms-20-takara-tomy-pokemon-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20Gyarados%20Moncolle%20Ms-20%20Takara%20Tomy%20Pok%C3%A9mon%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura dragonite moncolle takara tomy pokémon ms-25 4 cm">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_927230-MPE104470376926_012026-F.webp", "https://http2.mlstatic.com/D_837832-MPE105025619251_012026-F.webp", "https://http2.mlstatic.com/D_760614-MLA82442043674_022025-F.webp", "https://http2.mlstatic.com/D_800941-MLA82442113408_022025-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_927230-MPE104470376926_012026-F.webp" alt="Figura Dragonite Moncolle Takara Tomy Pokémon Ms-25 4 Cm" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_927230-MPE104470376926_012026-F.webp" alt="Figura Dragonite Moncolle Takara Tomy Pokémon Ms-25 4 Cm" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_837832-MPE105025619251_012026-F.webp" alt="Figura Dragonite Moncolle Takara Tomy Pokémon Ms-25 4 Cm" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_760614-MLA82442043674_022025-F.webp" alt="Figura Dragonite Moncolle Takara Tomy Pokémon Ms-25 4 Cm" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_800941-MLA82442113408_022025-F.webp" alt="Figura Dragonite Moncolle Takara Tomy Pokémon Ms-25 4 Cm" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura Dragonite Moncolle Takara Tomy Pokémon Ms-25 4 Cm</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 45.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-952656392-figura-dragonite-moncolle-takara-tomy-pokemon-ms-25-4-cm-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20Dragonite%20Moncolle%20Takara%20Tomy%20Pok%C3%A9mon%20Ms-25%204%20Cm%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura dragonite moncolle takara tomy pokémon ms-25 4 cm">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_760614-MLA82442043674_022025-F.webp", "https://http2.mlstatic.com/D_997178-MLA82442212710_022025-F.webp", "https://http2.mlstatic.com/D_800941-MLA82442113408_022025-F.webp", "https://http2.mlstatic.com/D_904949-MLA82442043696_022025-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_760614-MLA82442043674_022025-F.webp" alt="Figura Dragonite Moncolle Takara Tomy Pokémon Ms-25 4 Cm" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_760614-MLA82442043674_022025-F.webp" alt="Figura Dragonite Moncolle Takara Tomy Pokémon Ms-25 4 Cm" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_997178-MLA82442212710_022025-F.webp" alt="Figura Dragonite Moncolle Takara Tomy Pokémon Ms-25 4 Cm" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_800941-MLA82442113408_022025-F.webp" alt="Figura Dragonite Moncolle Takara Tomy Pokémon Ms-25 4 Cm" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_904949-MLA82442043696_022025-F.webp" alt="Figura Dragonite Moncolle Takara Tomy Pokémon Ms-25 4 Cm" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura Dragonite Moncolle Takara Tomy Pokémon Ms-25 4 Cm</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 45.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-952643342-figura-dragonite-moncolle-takara-tomy-pokemon-ms-25-4-cm-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20Dragonite%20Moncolle%20Takara%20Tomy%20Pok%C3%A9mon%20Ms-25%204%20Cm%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="pokemon moncolle ms-20 gyarados">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_742399-MLM46454683456_062021-F.webp", "https://http2.mlstatic.com/D_921416-MLM46454693335_062021-F.webp", "https://http2.mlstatic.com/D_749510-MLA90649206875_082025-F.webp", "https://http2.mlstatic.com/D_824933-MLA90265164726_082025-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_742399-MLM46454683456_062021-F.webp" alt="Pokemon Moncolle Ms-20 Gyarados" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_742399-MLM46454683456_062021-F.webp" alt="Pokemon Moncolle Ms-20 Gyarados" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_921416-MLM46454693335_062021-F.webp" alt="Pokemon Moncolle Ms-20 Gyarados" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_749510-MLA90649206875_082025-F.webp" alt="Pokemon Moncolle Ms-20 Gyarados" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_824933-MLA90265164726_082025-F.webp" alt="Pokemon Moncolle Ms-20 Gyarados" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Pokemon Moncolle Ms-20 Gyarados</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 45.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-962419002-pokemon-moncolle-ms-20-gyarados-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Pokemon%20Moncolle%20Ms-20%20Gyarados%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura pokémon chikorita takara tomy moncolle original">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_953507-MPE107261656758_032026-F.webp", "https://http2.mlstatic.com/D_918761-MPE107260653330_032026-F.webp", "https://http2.mlstatic.com/D_930641-MPE107261626892_032026-F.webp", "https://http2.mlstatic.com/D_817393-MPE107966968039_032026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_953507-MPE107261656758_032026-F.webp" alt="Figura Pokémon Chikorita Takara Tomy Moncolle Original" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_953507-MPE107261656758_032026-F.webp" alt="Figura Pokémon Chikorita Takara Tomy Moncolle Original" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_918761-MPE107260653330_032026-F.webp" alt="Figura Pokémon Chikorita Takara Tomy Moncolle Original" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_930641-MPE107261626892_032026-F.webp" alt="Figura Pokémon Chikorita Takara Tomy Moncolle Original" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_817393-MPE107966968039_032026-F.webp" alt="Figura Pokémon Chikorita Takara Tomy Moncolle Original" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura Pokémon Chikorita Takara Tomy Moncolle Original</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 50.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-998858054-figura-pokemon-chikorita-takara-tomy-moncolle-original-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20Pok%C3%A9mon%20Chikorita%20Takara%20Tomy%20Moncolle%20Original%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura pokémon totodile moncolle takara tomy 5cm">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_983853-MPE107260674310_032026-F.webp", "https://http2.mlstatic.com/D_753684-MPE107258953986_032026-F.webp", "https://http2.mlstatic.com/D_808648-MPE107966007055_032026-F.webp", "https://http2.mlstatic.com/D_700627-MPE107260495320_032026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_983853-MPE107260674310_032026-F.webp" alt="Figura Pokémon Totodile Moncolle Takara Tomy 5cm" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_983853-MPE107260674310_032026-F.webp" alt="Figura Pokémon Totodile Moncolle Takara Tomy 5cm" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_753684-MPE107258953986_032026-F.webp" alt="Figura Pokémon Totodile Moncolle Takara Tomy 5cm" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_808648-MPE107966007055_032026-F.webp" alt="Figura Pokémon Totodile Moncolle Takara Tomy 5cm" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_700627-MPE107260495320_032026-F.webp" alt="Figura Pokémon Totodile Moncolle Takara Tomy 5cm" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura Pokémon Totodile Moncolle Takara Tomy 5cm</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 50.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-998767006-figura-pokemon-totodile-moncolle-takara-tomy-5cm-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20Pok%C3%A9mon%20Totodile%20Moncolle%20Takara%20Tomy%205cm%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="nueva figura takara tomy pokemon ms-17 moncolle de 4 cm">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_740990-MLA95659456327_102025-F.webp", "https://http2.mlstatic.com/D_890399-MLA83266515381_032025-F.webp", "https://http2.mlstatic.com/D_724313-MLA91652559308_092025-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_740990-MLA95659456327_102025-F.webp" alt="Nueva Figura Takara Tomy Pokemon Ms-17 Moncolle De 4 Cm" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_740990-MLA95659456327_102025-F.webp" alt="Nueva Figura Takara Tomy Pokemon Ms-17 Moncolle De 4 Cm" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_890399-MLA83266515381_032025-F.webp" alt="Nueva Figura Takara Tomy Pokemon Ms-17 Moncolle De 4 Cm" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_724313-MLA91652559308_092025-F.webp" alt="Nueva Figura Takara Tomy Pokemon Ms-17 Moncolle De 4 Cm" loading="lazy" data-idx="2"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Nueva Figura Takara Tomy Pokemon Ms-17 Moncolle De 4 Cm</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 50.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-988228022-nueva-figura-takara-tomy-pokemon-ms-17-moncolle-de-4-cm-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Nueva%20Figura%20Takara%20Tomy%20Pokemon%20Ms-17%20Moncolle%20De%204%20Cm%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura pokemon moncolle ms-12 captain pikachu">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_956795-MLA80959005576_122024-F.webp", "https://http2.mlstatic.com/D_814071-MLA80958731004_122024-F.webp", "https://http2.mlstatic.com/D_863928-MLA80959005582_122024-F.webp", "https://http2.mlstatic.com/D_888418-MLA80958652456_122024-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_956795-MLA80959005576_122024-F.webp" alt="Figura Pokemon Moncolle Ms-12 Captain Pikachu" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_956795-MLA80959005576_122024-F.webp" alt="Figura Pokemon Moncolle Ms-12 Captain Pikachu" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_814071-MLA80958731004_122024-F.webp" alt="Figura Pokemon Moncolle Ms-12 Captain Pikachu" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_863928-MLA80959005582_122024-F.webp" alt="Figura Pokemon Moncolle Ms-12 Captain Pikachu" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_888418-MLA80958652456_122024-F.webp" alt="Figura Pokemon Moncolle Ms-12 Captain Pikachu" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura Pokemon Moncolle Ms-12 Captain Pikachu</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 50.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-1027783774-figura-pokemon-moncolle-ms-12-captain-pikachu-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20Pokemon%20Moncolle%20Ms-12%20Captain%20Pikachu%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura mega lucario pokémon moncolle original takara tomy">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_750112-MPE108373564240_032026-F.webp", "https://http2.mlstatic.com/D_773956-MPE109167913709_032026-F.webp", "https://http2.mlstatic.com/D_763055-MPE109166333461_032026-F.webp", "https://http2.mlstatic.com/D_999519-MPE108373178246_032026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_750112-MPE108373564240_032026-F.webp" alt="Figura Mega Lucario Pokémon Moncolle Original Takara Tomy" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_750112-MPE108373564240_032026-F.webp" alt="Figura Mega Lucario Pokémon Moncolle Original Takara Tomy" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_773956-MPE109167913709_032026-F.webp" alt="Figura Mega Lucario Pokémon Moncolle Original Takara Tomy" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_763055-MPE109166333461_032026-F.webp" alt="Figura Mega Lucario Pokémon Moncolle Original Takara Tomy" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_999519-MPE108373178246_032026-F.webp" alt="Figura Mega Lucario Pokémon Moncolle Original Takara Tomy" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura Mega Lucario Pokémon Moncolle Original Takara Tomy</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 75.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-1027783712-figura-mega-lucario-pokemon-moncolle-original-takara-tomy-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20Mega%20Lucario%20Pok%C3%A9mon%20Moncolle%20Original%20Takara%20Tomy%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura pokémon mega mewtwo x moncolle takara tomy">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_889042-MPE108373542114_032026-F.webp", "https://http2.mlstatic.com/D_651735-MPE108373571830_032026-F.webp", "https://http2.mlstatic.com/D_800071-MPE108375204374_032026-F.webp", "https://http2.mlstatic.com/D_851454-MPE108373631868_032026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_889042-MPE108373542114_032026-F.webp" alt="Figura Pokémon Mega Mewtwo X Moncolle Takara Tomy" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_889042-MPE108373542114_032026-F.webp" alt="Figura Pokémon Mega Mewtwo X Moncolle Takara Tomy" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_651735-MPE108373571830_032026-F.webp" alt="Figura Pokémon Mega Mewtwo X Moncolle Takara Tomy" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_800071-MPE108375204374_032026-F.webp" alt="Figura Pokémon Mega Mewtwo X Moncolle Takara Tomy" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_851454-MPE108373631868_032026-F.webp" alt="Figura Pokémon Mega Mewtwo X Moncolle Takara Tomy" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura Pokémon Mega Mewtwo X Moncolle Takara Tomy</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 59.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-1027549776-figura-pokemon-mega-mewtwo-x-moncolle-takara-tomy-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20Pok%C3%A9mon%20Mega%20Mewtwo%20X%20Moncolle%20Takara%20Tomy%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="pokemon moncolle mega mewtwo x takara tomy">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_675337-MLA90926572894_082025-F.webp", "https://http2.mlstatic.com/D_968775-MLA91317471571_082025-F.webp", "https://http2.mlstatic.com/D_683342-MLA90926828784_082025-F.webp", "https://http2.mlstatic.com/D_726493-MLA90926504340_082025-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_675337-MLA90926572894_082025-F.webp" alt="Pokemon Moncolle Mega Mewtwo X Takara Tomy" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_675337-MLA90926572894_082025-F.webp" alt="Pokemon Moncolle Mega Mewtwo X Takara Tomy" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_968775-MLA91317471571_082025-F.webp" alt="Pokemon Moncolle Mega Mewtwo X Takara Tomy" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_683342-MLA90926828784_082025-F.webp" alt="Pokemon Moncolle Mega Mewtwo X Takara Tomy" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_726493-MLA90926504340_082025-F.webp" alt="Pokemon Moncolle Mega Mewtwo X Takara Tomy" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Pokemon Moncolle Mega Mewtwo X Takara Tomy</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 59.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-1028875008-pokemon-moncolle-mega-mewtwo-x-takara-tomy-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Pokemon%20Moncolle%20Mega%20Mewtwo%20X%20Takara%20Tomy%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figuras pokémon eevee, espeon y umbreon takara tomy">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_882731-MPE108756476656_032026-F.webp", "https://http2.mlstatic.com/D_751116-MPE109571536299_032026-F.webp", "https://http2.mlstatic.com/D_975806-MPE108757756806_032026-F.webp", "https://http2.mlstatic.com/D_887851-MPE108756443182_032026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_882731-MPE108756476656_032026-F.webp" alt="Figuras Pokémon Eevee, Espeon Y Umbreon Takara Tomy" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_882731-MPE108756476656_032026-F.webp" alt="Figuras Pokémon Eevee, Espeon Y Umbreon Takara Tomy" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_751116-MPE109571536299_032026-F.webp" alt="Figuras Pokémon Eevee, Espeon Y Umbreon Takara Tomy" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_975806-MPE108757756806_032026-F.webp" alt="Figuras Pokémon Eevee, Espeon Y Umbreon Takara Tomy" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_887851-MPE108756443182_032026-F.webp" alt="Figuras Pokémon Eevee, Espeon Y Umbreon Takara Tomy" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figuras Pokémon Eevee, Espeon Y Umbreon Takara Tomy</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 140.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-1034934762-figuras-pokemon-eevee-espeon-y-umbreon-takara-tomy-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figuras%20Pok%C3%A9mon%20Eevee%2C%20Espeon%20Y%20Umbreon%20Takara%20Tomy%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura pokémon mega charizard x moncolle ms-51 takara tomy">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_699782-MPE109638367415_032026-F.webp", "https://http2.mlstatic.com/D_889070-MPE109639555571_032026-F.webp", "https://http2.mlstatic.com/D_639603-MPE109638368023_032026-F.webp", "https://http2.mlstatic.com/D_738204-MPE109638338013_032026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_699782-MPE109638367415_032026-F.webp" alt="Figura Pokémon Mega Charizard X Moncolle Ms-51 Takara Tomy" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_699782-MPE109638367415_032026-F.webp" alt="Figura Pokémon Mega Charizard X Moncolle Ms-51 Takara Tomy" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_889070-MPE109639555571_032026-F.webp" alt="Figura Pokémon Mega Charizard X Moncolle Ms-51 Takara Tomy" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_639603-MPE109638368023_032026-F.webp" alt="Figura Pokémon Mega Charizard X Moncolle Ms-51 Takara Tomy" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_738204-MPE109638338013_032026-F.webp" alt="Figura Pokémon Mega Charizard X Moncolle Ms-51 Takara Tomy" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura Pokémon Mega Charizard X Moncolle Ms-51 Takara Tomy</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 50.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-1036155742-figura-pokemon-mega-charizard-x-moncolle-ms-51-takara-tomy-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20Pok%C3%A9mon%20Mega%20Charizard%20X%20Moncolle%20Ms-51%20Takara%20Tomy%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura pokemon moncolle ms-29 snorlax | takara tomy">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_664591-MLA82647249145_022025-F.webp", "https://http2.mlstatic.com/D_993502-MLA82362586284_022025-F.webp", "https://http2.mlstatic.com/D_637830-MLA82362576476_022025-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_664591-MLA82647249145_022025-F.webp" alt="Figura Pokemon Moncolle Ms-29 Snorlax | Takara Tomy" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_664591-MLA82647249145_022025-F.webp" alt="Figura Pokemon Moncolle Ms-29 Snorlax | Takara Tomy" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_993502-MLA82362586284_022025-F.webp" alt="Figura Pokemon Moncolle Ms-29 Snorlax | Takara Tomy" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_637830-MLA82362576476_022025-F.webp" alt="Figura Pokemon Moncolle Ms-29 Snorlax | Takara Tomy" loading="lazy" data-idx="2"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura Pokemon Moncolle Ms-29 Snorlax | Takara Tomy</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 48.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-1036155736-figura-pokemon-moncolle-ms-29-snorlax-takara-tomy-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20Pokemon%20Moncolle%20Ms-29%20Snorlax%20%7C%20Takara%20Tomy%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura pokémon blastoise takara tomy moncolle ms-16">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_606528-MPE108817126052_032026-F.webp", "https://http2.mlstatic.com/D_607329-MPE109638364409_032026-F.webp", "https://http2.mlstatic.com/D_847685-MPE109638364363_032026-F.webp", "https://http2.mlstatic.com/D_873176-MPE109637386931_032026-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_606528-MPE108817126052_032026-F.webp" alt="Figura Pokémon Blastoise Takara Tomy Moncolle Ms-16" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_606528-MPE108817126052_032026-F.webp" alt="Figura Pokémon Blastoise Takara Tomy Moncolle Ms-16" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_607329-MPE109638364409_032026-F.webp" alt="Figura Pokémon Blastoise Takara Tomy Moncolle Ms-16" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_847685-MPE109638364363_032026-F.webp" alt="Figura Pokémon Blastoise Takara Tomy Moncolle Ms-16" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_873176-MPE109637386931_032026-F.webp" alt="Figura Pokémon Blastoise Takara Tomy Moncolle Ms-16" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura Pokémon Blastoise Takara Tomy Moncolle Ms-16</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 50.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-1036155716-figura-pokemon-blastoise-takara-tomy-moncolle-ms-16-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20Pok%C3%A9mon%20Blastoise%20Takara%20Tomy%20Moncolle%20Ms-16%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="card" data-cat="pokemon" data-title="figura pokemon moncolle ms-16 blastoise takara tomy kanto">
+            <div class="card-img-wrap" data-imgs='["https://http2.mlstatic.com/D_615794-MLA43334328829_092020-F.webp", "https://http2.mlstatic.com/D_733375-MLA50817341996_072022-F.webp", "https://http2.mlstatic.com/D_628051-MLA50817425997_072022-F.webp", "https://http2.mlstatic.com/D_955146-MLA90201027718_082025-F.webp"]' data-idx="0">
+                <img class="card-main-img" src="https://http2.mlstatic.com/D_615794-MLA43334328829_092020-F.webp" alt="Figura Pokemon Moncolle Ms-16 Blastoise Takara Tomy Kanto" loading="lazy"/>
+                
+                <button class="img-prev" aria-label="Anterior">&#8249;</button>
+                <button class="img-next" aria-label="Siguiente">&#8250;</button>
+                <div class="card-thumbs"><img class="thumb-item active" src="https://http2.mlstatic.com/D_615794-MLA43334328829_092020-F.webp" alt="Figura Pokemon Moncolle Ms-16 Blastoise Takara Tomy Kanto" loading="lazy" data-idx="0"/><img class="thumb-item" src="https://http2.mlstatic.com/D_733375-MLA50817341996_072022-F.webp" alt="Figura Pokemon Moncolle Ms-16 Blastoise Takara Tomy Kanto" loading="lazy" data-idx="1"/><img class="thumb-item" src="https://http2.mlstatic.com/D_628051-MLA50817425997_072022-F.webp" alt="Figura Pokemon Moncolle Ms-16 Blastoise Takara Tomy Kanto" loading="lazy" data-idx="2"/><img class="thumb-item" src="https://http2.mlstatic.com/D_955146-MLA90201027718_082025-F.webp" alt="Figura Pokemon Moncolle Ms-16 Blastoise Takara Tomy Kanto" loading="lazy" data-idx="3"/></div>
+                <span class="card-cat">Pokémon</span>
+                <span class="card-cond">Nuevo</span>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Figura Pokemon Moncolle Ms-16 Blastoise Takara Tomy Kanto</h3>
+                <span class="badge-ship">🚚 Envío gratis a todo el Perú</span>
+                <div class="card-price">S/ 50.00</div>
+                <a class="btn-buy" href="https://articulo.mercadolibre.com.pe/MPE-1038053008-figura-pokemon-moncolle-ms-16-blastoise-takara-tomy-kanto-_JM" target="_blank" rel="noopener">
+                    🛒 Compra segura por Mercado Libre
+                </a>
+                <a class="btn-wa" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20este%20producto%20%22Figura%20Pokemon%20Moncolle%20Ms-16%20Blastoise%20Takara%20Tomy%20Kanto%22" target="_blank" rel="noopener">
+                    💬 Consultar por WhatsApp
+                </a>
+            </div>
+        </div>
+  </div>
+</section>
+
+<section class="trust-band">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <span class="trust-icon">🛡️</span>
+      <div class="trust-title">Compra 100% Segura</div>
+      <div class="trust-desc">Todas las ventas se realizan a través de Mercado Libre, la plataforma de e-commerce más grande de Latinoamérica.</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🚚</span>
+      <div class="trust-title">Envíos a Todo el Perú</div>
+      <div class="trust-desc">Despachamos por Mercado Libre a cualquier departamento del Perú. Seguimiento en tiempo real incluido.</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">↩️</span>
+      <div class="trust-title">Devoluciones Aceptadas</div>
+      <div class="trust-desc">Si el producto no llegó en las condiciones esperadas, tienes respaldo de Mercado Libre para gestionar tu devolución.</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">✅</span>
+      <div class="trust-title">Productos Originales</div>
+      <div class="trust-desc">Todas las figuras y coleccionables son 100% originales. Takara Tomy, Bburago y marcas reconocidas.</div>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">💬</span>
+      <div class="trust-title">Atención por WhatsApp</div>
+      <div class="trust-desc">¿Tienes dudas antes de comprar? Escríbenos directamente y te asesoramos al instante.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">HelloBoxPe</div>
+  <p style="color:var(--text2);font-size:.9rem;font-weight:600;">Coleccionables originales en Perú 🇵🇪</p>
+  <div class="footer-links">
+    <a href="https://www.mercadolibre.com.pe/pagina/helloboxpe" target="_blank" rel="noopener">🛒 Mercado Libre</a>
+    <a href="https://www.facebook.com/profile.php?id=61590178142576" target="_blank" rel="noopener">📘 Facebook</a>
+    <a href="https://www.tiktok.com/@helloboxpe" target="_blank" rel="noopener">🎵 TikTok</a>
+    <a href="https://wa.me/51968141933" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
+  <p class="footer-copy">© 2026 HelloBoxPe · Todos los precios incluyen IGV</p>
+  <p class="updated">Última actualización: 30/05/2026 12:09</p>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/51968141933?text=Hola%20HelloBoxPe%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20productos%20%F0%9F%98%8A" target="_blank" rel="noopener" title="Contáctanos por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+const cards = Array.from(document.querySelectorAll('.card'));
+const countEl = document.getElementById('count');
+let activeCat = 'all';
+let searchVal = '';
+
+function filter() {
+  let visible = 0;
+  cards.forEach(c => {
+    const catOk    = activeCat === 'all' || c.dataset.cat === activeCat;
+    const searchOk = !searchVal || c.dataset.title.includes(searchVal);
+    const show     = catOk && searchOk;
+    c.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  countEl.textContent = visible;
+  document.querySelector('.no-results')?.remove();
+  if (visible === 0) {
+    const grid = document.getElementById('grid');
+    grid.insertAdjacentHTML('beforeend',
+      '<div class="no-results"><span>🔍</span>No hay productos con ese filtro.</div>');
+  }
+}
+
+document.querySelectorAll('.cat-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCat = btn.dataset.cat;
+    filter();
+  });
+});
+
+document.getElementById('search').addEventListener('input', e => {
+  searchVal = e.target.value.toLowerCase().trim();
+  filter();
+});
+
+// Navegación de imágenes por flechas y miniaturas
+document.querySelectorAll('.card-img-wrap[data-imgs]').forEach(wrap => {
+  const imgs   = JSON.parse(wrap.dataset.imgs);
+  if (imgs.length <= 1) return;
+  const main   = wrap.querySelector('.card-main-img');
+  const prev   = wrap.querySelector('.img-prev');
+  const next   = wrap.querySelector('.img-next');
+  const thumbs = wrap.querySelectorAll('.thumb-item');
+
+  function goTo(idx) {
+    idx = (idx + imgs.length) % imgs.length;
+    wrap.dataset.idx = idx;
+    main.src = imgs[idx];
+    thumbs.forEach((t, i) => t.classList.toggle('active', i === idx));
+  }
+
+  prev?.addEventListener('click', e => { e.stopPropagation(); goTo(+wrap.dataset.idx - 1); });
+  next?.addEventListener('click', e => { e.stopPropagation(); goTo(+wrap.dataset.idx + 1); });
+  thumbs.forEach((t, i) => t.addEventListener('click', () => goTo(i)));
+});
+</script>
+</body>
+</html>
